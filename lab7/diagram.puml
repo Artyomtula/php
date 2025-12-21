@@ -1,0 +1,40 @@
+@startuml ClassDiagram
+
+' Стиль диаграммы
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+skinparam classFontStyle bold
+
+' Класс User
+class User {
+    + name: string
+    + login: string
+    - password: string
+    --
+    + __construct(name: string, login: string, password: string)
+    + showInfo(): void
+    + __destruct()
+}
+
+' Класс SuperUser
+class SuperUser {
+    + role: string
+    --
+    + __construct(name: string, login: string, password: string, role: string)
+    + showInfo(): void
+}
+
+' Связь наследования
+User <|-- SuperUser
+
+note right of User
+  Базовый класс
+  пользователя
+end note
+
+note right of SuperUser
+  Расширенный класс
+  с дополнительной ролью
+end note
+
+@enduml
